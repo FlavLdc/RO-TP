@@ -5,9 +5,9 @@
 from pathlib import Path
 import pulp as pl
 
-data_folder = Path("RO TP/data/")
+data_folder = Path("./data")
 
-file_to_open = data_folder / "truck_instance_base.data"
+file_to_open = data_folder/"truck_instance_base.data"
 
 f = open(file_to_open)
 
@@ -16,27 +16,35 @@ print (f.read())
 # ============================================================================ #
 #                                  SET MODEL                                   #
 # ============================================================================ #
+def set_model_name():
+    """TODO: Description."""
+    # ------------------------------------------------------------------------ #
+    # Linear problem with maximization
+    # ------------------------------------------------------------------------ #
+    prob = pl.LpProblem(name='name', sense=pl.LpMaximize)
+    # FIXME: it is not always a maximization problem ...
 
+    # ------------------------------------------------------------------------ #
+    # The variables
+    # ------------------------------------------------------------------------ #
+    # TODO: set variables
 
-def solve_truck_problem(file_path):
-# Faire quelque chose ici avec l'argument `file_path`
-# qui est un chemin de fichier
-# ...
-# La fonction retournera :
-# - la valeur de la fonction objectif égale aux bénéfices
-# de l'entreprise si le problème est resolvable,
-# sinon `None`. Le type de retour sera un "float" ;
-# - un dictionnaire,
-# où les clefs sont les routes et les valeurs associées
-# sont les quantités de marchandises qui les traversent ;
-# - ce que vous voulez en plus si besoin.
-return optval, roads_qty #, ...
+    # ------------------------------------------------------------------------ #
+    # The objective function
+    # ------------------------------------------------------------------------ #
+    # TODO: write the objective function
+
+    # ------------------------------------------------------------------------ #
+    # The constraints
+    # ------------------------------------------------------------------------ #
+    # TODO: write constraints
+
+    return prob
 
 
 # ============================================================================ #
 #                               SOLVE WITH DATA                                #
 # ============================================================================ #
-
 
 def solve_something():
     """TODO: Description."""
