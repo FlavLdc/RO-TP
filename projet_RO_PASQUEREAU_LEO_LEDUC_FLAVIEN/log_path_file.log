@@ -2,7 +2,7 @@ Welcome to the CBC MILP Solver
 Version: 2.9.0 
 Build Date: Feb 12 2015 
 
-command line - C:\Users\Admin\AppData\Local\Programs\Python\Python39\lib\site-packages\pulp\apis\..\solverdir\cbc\win\64\cbc.exe C:\Users\Admin\AppData\Local\Temp\08f3e9c8b4184d8f8802891688fe932f-pulp.mps max ratio None allow None threads None presolve on strong None gomory on knapsack on probing on branch printingOptions all solution C:\Users\Admin\AppData\Local\Temp\08f3e9c8b4184d8f8802891688fe932f-pulp.sol (default strategy 1)
+command line - C:\Users\Leo\AppData\Local\Programs\Python\Python39\lib\site-packages\pulp\apis\..\solverdir\cbc\win\64\cbc.exe C:\Users\Leo\AppData\Local\Temp\f3d0effe90594e31ba37330e386c3682-pulp.mps max ratio None allow None threads None presolve on strong None gomory on knapsack on probing on branch printingOptions all solution C:\Users\Leo\AppData\Local\Temp\f3d0effe90594e31ba37330e386c3682-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
 At line 5 COLUMNS

@@ -45,3 +45,5 @@ def add_roads(graph,a,b):
     b_id = f'R{b}'
     graph.add_edge(a_id,b_id)
 
+def mini_test():
+    print("coucou")

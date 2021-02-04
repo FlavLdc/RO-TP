@@ -4,6 +4,7 @@
 """TODO: DESCRIPTION."""
 from pathlib import Path
 import pulp as pl
+from Extraction_data import mini_test
 
 data_folder = Path("./data")
 
@@ -12,6 +13,7 @@ file_to_open = data_folder/"truck_instance_base.data"
 f = open(file_to_open)
 
 print (f.read())
+mini_test()
 
 # ============================================================================ #
 #                                  SET MODEL                                   #
