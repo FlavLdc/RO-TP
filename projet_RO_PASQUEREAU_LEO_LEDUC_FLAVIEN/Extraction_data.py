@@ -6,20 +6,20 @@ import networkx as nx
 SOURCE = 'S'
 TARGET = 'T'
 
-def extract_data(file_path):
+def extract_data(file_to_open):
 
     graph = nx.DiGraph()
 
     graph.add_node(SOURCE)
     graph.add_node(TARGET)
 
-    with open(file_path,'r') as f_in:
+    with open(file_to_open,'r') as f_in:
         #Extraction des données de l'en-tête
         entete = f_in.readline()
-        p = f_in.readline(0,1) #Limite du camion
-        start = f_in.readline(3,4) #Dépôt de départ
-        n_clientsuppr = f_in.readline(6)# Nombre de clients à ne pas servir
-        n_desuppr = f_in.readline(8)# Nombre de dépôts hors service
+        p = f_in.readline() #Limite du camion
+        start = f_in.readline() #Dépôt de départ
+        n_clientsuppr = f_in.readline()# Nombre de clients à ne pas servir
+        n_desuppr = f_in.readline()# Nombre de dépôts hors service
         #Extraction des données des blocs
         bloc = ''
         for line in f_in:
@@ -44,6 +44,3 @@ def add_roads(graph,a,b):
     a_id = f'R{a}'
     b_id = f'R{b}'
     graph.add_edge(a_id,b_id)
-
-def mini_test():
-    print("coucou")
