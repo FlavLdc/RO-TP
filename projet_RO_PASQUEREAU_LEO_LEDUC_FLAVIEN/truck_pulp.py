@@ -6,8 +6,6 @@ from pathlib import Path
 import pulp as pl
 import networkx as nx
 from Extraction_data import extract_data
-SOURCE = 'S'
-TARGET = 'T'
 
 data_folder = Path("./data")
 
@@ -77,5 +75,5 @@ def solve_something():
 
 
 if __name__ == '__main__':
-
-    extract_data(file_to_open)
+    graph =extract_data(file_to_open)
+    nx.write_graphml(graph,'test.cys')
