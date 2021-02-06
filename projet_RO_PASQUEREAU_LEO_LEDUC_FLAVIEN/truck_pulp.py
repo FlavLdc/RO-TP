@@ -9,7 +9,7 @@ from Extraction_data import extract_data
 
 data_folder = Path("./data")
 
-file_to_open = data_folder/"truck_instance_base.data"
+file_to_open = data_folder/"truck_instance_less_customers.data"
 
 f = open(file_to_open)
 
@@ -76,4 +76,4 @@ def solve_something():
 
 if __name__ == '__main__':
     graph =extract_data(file_to_open)
-    nx.write_graphml(graph,'test.graphml')
+    nx.write_graphml(graph,'test_clientsuppr.graphml')
