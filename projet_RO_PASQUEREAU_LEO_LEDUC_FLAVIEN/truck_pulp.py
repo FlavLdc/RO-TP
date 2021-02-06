@@ -76,4 +76,4 @@ def solve_something():
 
 if __name__ == '__main__':
     graph =extract_data(file_to_open)
-    nx.write_graphml(graph,'test.cys')
+    nx.write_graphml(graph,'test.graphml')
