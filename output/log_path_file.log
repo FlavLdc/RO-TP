@@ -2,7 +2,7 @@ Welcome to the CBC MILP Solver
 Version: 2.9.0 
 Build Date: Feb 12 2015 
 
-command line - C:\Users\Leo\AppData\Local\Programs\Python\Python39\lib\site-packages\pulp\apis\..\solverdir\cbc\win\64\cbc.exe C:\Users\Leo\AppData\Local\Temp\81437d393f8c4bb5a2d86cf3b7ef55db-pulp.mps max ratio None allow None threads None presolve on strong None gomory on knapsack on probing on branch printingOptions all solution C:\Users\Leo\AppData\Local\Temp\81437d393f8c4bb5a2d86cf3b7ef55db-pulp.sol (default strategy 1)
+command line - C:\Users\Leo\AppData\Local\Programs\Python\Python39\lib\site-packages\pulp\apis\..\solverdir\cbc\win\64\cbc.exe C:\Users\Leo\AppData\Local\Temp\49fb379c437442d9ae69d1086f7c8848-pulp.mps max ratio None allow None threads None presolve on strong None gomory on knapsack on probing on branch printingOptions all solution C:\Users\Leo\AppData\Local\Temp\49fb379c437442d9ae69d1086f7c8848-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
 At line 55 COLUMNS
@@ -43,7 +43,7 @@ Objective value:                -40.00000000
 Enumerated nodes:               0
 Total iterations:               0
 Time (CPU seconds):             0.00
-Time (Wallclock seconds):       0.00
+Time (Wallclock seconds):       0.01
 
 Option for printingOptions changed from normal to all
 Total time (CPU seconds):       0.01   (Wallclock seconds):       0.01
