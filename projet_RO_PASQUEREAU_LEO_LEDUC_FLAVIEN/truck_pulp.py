@@ -4,6 +4,7 @@
 from pathlib import Path
 import pulp as pl
 import networkx as nx
+import os
 from Extraction_data import extract_data
 
 
@@ -96,7 +97,10 @@ def solve_truck_problem(file_path):
     # ------------------------------------------------------------------------ #
     prob = set_benef_max(graph,source,p)
     # Coin Branch and Cut solver is used to solve the instanced model
-    prob.solve(pl.PULP_CBC_CMD(logPath='./log_path_file.log'))
+    log_path = '/output'
+    if not os.path.exists(log_path):
+        os.mkdir(log_path)
+    prob.solve(pl.PULP_CBC_CMD(logPath=log_path+'/log_path_file.log'))
 
     # ------------------------------------------------------------------------ #
     # Print the solver output
