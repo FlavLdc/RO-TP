@@ -16,16 +16,11 @@ def set_benef_max(graph, source, p):
     # ------------------------------------------------------------------------ #
     # Linear problem with maximization
     # ------------------------------------------------------------------------ #
-<<<<<<< HEAD
     prob = pl.LpProblem(name='Maximisation_du_benefice', sense=pl.LpMaximize)
-=======
-    prob = pl.LpProblem(name='max_benef', sense=pl.LpMaximize)
->>>>>>> e8ce1cab008a442921f80103347842ab6bfe3ad2
 
     # ------------------------------------------------------------------------ #
     # The variables
     # ------------------------------------------------------------------------ #
-<<<<<<< HEAD
     Points = graph.nodes() #dictionnaire ['D1','D2',...]
     Routes = graph.edges() #dictionnaire [('D1','D2'),('D1','D3'),...]
     Depart = source
@@ -48,9 +43,6 @@ def set_benef_max(graph, source, p):
     for (u,v) in Routes:
         # Add the edges binaries
         d_passage_e[(u, v)] = pl.LpVariable(f'passage_{u}_{v}', cat=pl.LpBinary)
-=======
-    
->>>>>>> e8ce1cab008a442921f80103347842ab6bfe3ad2
 
     # ------------------------------------------------------------------------ #
     # The objective function
