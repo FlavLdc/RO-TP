@@ -21,13 +21,12 @@ def set_model_name():
     # ------------------------------------------------------------------------ #
     # Linear problem with maximization
     # ------------------------------------------------------------------------ #
-    prob = pl.LpProblem(name='name', sense=pl.LpMaximize)
-    # FIXME: it is not always a maximization problem ...
+    prob = pl.LpProblem(name='max_benef', sense=pl.LpMaximize)
 
     # ------------------------------------------------------------------------ #
     # The variables
     # ------------------------------------------------------------------------ #
-    # TODO: set variables
+    
 
     # ------------------------------------------------------------------------ #
     # The objective function
