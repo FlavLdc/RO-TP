@@ -3,6 +3,7 @@ Version: 2.9.0
 Build Date: Feb 12 2015 
 
 command line - C:\Users\Leo\AppData\Local\Programs\Python\Python39\lib\site-packages\pulp\apis\..\solverdir\cbc\win\64\cbc.exe C:\Users\Leo\AppData\Local\Temp\cd72829e17c6458987668f5b900b4936-pulp.mps max ratio None allow None threads None presolve on strong None gomory on knapsack on probing on branch printingOptions all solution C:\Users\Leo\AppData\Local\Temp\cd72829e17c6458987668f5b900b4936-pulp.sol (default strategy 1)
+command line - C:\Users\Leo\AppData\Local\Programs\Python\Python39\lib\site-packages\pulp\apis\..\solverdir\cbc\win\64\cbc.exe C:\Users\Leo\AppData\Local\Temp\5aab63fa96f942d3b57f15373e70644a-pulp.mps max ratio None allow None threads None presolve on strong None gomory on knapsack on probing on branch printingOptions all solution C:\Users\Leo\AppData\Local\Temp\5aab63fa96f942d3b57f15373e70644a-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
 At line 67 COLUMNS
