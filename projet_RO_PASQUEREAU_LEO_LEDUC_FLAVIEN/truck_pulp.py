@@ -19,6 +19,7 @@ def set_benef_max(graph, source, p):
 <<<<<<< HEAD
     prob = pl.LpProblem(name='Maximisation_du_benefice', sense=pl.LpMaximize)
 =======
+    prob = pl.LpProblem(name='max_benef', sense=pl.LpMaximize)
 >>>>>>> e8ce1cab008a442921f80103347842ab6bfe3ad2
 
     # ------------------------------------------------------------------------ #
