@@ -11,6 +11,11 @@ At line 236 RHS
 At line 299 BOUNDS
 At line 340 ENDATA
 Problem MODEL has 62 rows, 40 columns and 68 elements
+At line 55 COLUMNS
+At line 300 RHS
+At line 351 BOUNDS
+At line 396 ENDATA
+Problem MODEL has 50 rows, 44 columns and 100 elements
 Coin0008I MODEL read with 0 errors
 String of None is illegal for double parameter ratioGap value remains 0
 String of None is illegal for double parameter allowableGap value remains 0
