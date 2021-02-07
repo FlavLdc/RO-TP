@@ -26,7 +26,7 @@ def extract_data(file_to_open):
                 b = line_split[1]
                 c = int(line_split[2])
                 if(b == 'depot'):
-                    graph.add_node(a, Stock = c)
+                    graph.add_node(a, Stock = -c)
                 else:                   
                     graph.add_node(a, Demande = c)     
             elif bloc =='ROADS':

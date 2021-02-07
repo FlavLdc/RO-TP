@@ -1,7 +1,6 @@
 #! /bin/env python3.8
 # -*- coding=utf-8 -*-
 
-"""TODO: DESCRIPTION."""
 from pathlib import Path
 import pulp as pl
 import networkx as nx
@@ -37,7 +36,7 @@ def set_benef_max(graph, source, p):
     Livraison = pl.LpVariable.dicts('Livraison', Points, lowBound=0, cat=pl.LpInteger)
     Quantite_depot = pl.LpVariable.dicts('Quantite', Points, upBound=0, cat=pl.LpInteger)
 
-    #big_M = graph.number_of_edges()
+    big_M = graph.number_of_edges()
 
     d_passage_e = {}  # a dictionnary of LpVariable which means: is e in path?
     for (u,v) in Routes:
@@ -47,36 +46,36 @@ def set_benef_max(graph, source, p):
     # ------------------------------------------------------------------------ #
     # The objective function
     # ------------------------------------------------------------------------ #
-    # TODO: write the objective function
-    prob += pl.lpSum([1000 * pl.lpSum(Demande_clients)]) - pl.lpSum([(Essence[e] + Douane[e] * Camion[e]) for e in Routes])
+    prob += pl.lpSum([1000 * pl.lpSum(Demande_clients)]) - pl.lpSum([(Essence[e]*d_passage_e[e] + Douane[e] * Camion[e]) for e in Routes])
     # ------------------------------------------------------------------------ #
     # The constraints
     # ------------------------------------------------------------------------ #
-    # TODO: write constraints
-    # C1: capacity is the transport limit for each edge
+    # C1: Le camion ne peut pas transporter plus que sa propre capacité maximale, ni que la capacité maximale de la route
     for e in Routes:
         prob += Camion[e] <= Routes[e]['Capacity'], f'capacity_limit_{e}'
         prob += Camion[e] <= p_camion
 
-    #C2 : On doit commencer a la source et finir a la source
+    #le camion ne peut pas passer par plus de routes qu'il n'y en adans le graphe
+    prob += pl.lpSum(d_passage_e) <= big_M
+
     
-    # On ne peut passer qu'1 fois sur un chemin 
     for point in Points:
-        if point == source:
-            prob += pl.lpSum(d_passage_e[(u,v)] for u, v in Routes if u == point) == 1
-            prob += pl.lpSum(d_passage_e[(t,u)] for u, t in Routes if u == point) == 1
-        #else:
-            #prob += pl.lpSum(Transport_Camion[u,v] for v, u in Routes if v == point) - \
-             #       pl.lpSum(Transport_Camion[v,w] for w, v in Routes if v == point) == Demande_clients[point]
+        if point == Depart:
+            prob += pl.lpSum(d_passage_e[(u,v)] for u,v in Routes if u == point) == 1
+        else:
+            prob += pl.lpSum(Camion[u,v] for v,u in Routes if u == point) - \
+                   pl.lpSum(Camion[v, w] for w,v in Routes if v == point) == Livraison[point]
+            prob += pl.lpSum(d_passage_e[i,k] for k,i in Routes if k == point) - \
+                   pl.lpSum(d_passage_e[k, j] for j,k in Routes if k == point) == 0
     print(Stock_depots)
     
+
     for e in Routes:
-        prob += d_passage_e[e] <= 1, f'{e}_max_one_time_in_path'
         
         for (u,v) in e:
-            if u == source:
+            if u == Depart:
                 prob += pl.lpSum(d_passage_e[(u,v)] for u, v in Routes) == 1
-            elif v == source:
+            elif v == Depart:
                 prob += pl.lpSum(d_passage_e[(u,v)] for u, v in Routes) == 1
             
     return prob
@@ -90,7 +89,6 @@ def solve_truck_problem(file_path):
     # ------------------------------------------------------------------------ #
     # Set data
     # ------------------------------------------------------------------------ #
-    # TODO: set data
     graph, source, p = extract_data(file_path)
 
     # ------------------------------------------------------------------------ #
@@ -98,7 +96,6 @@ def solve_truck_problem(file_path):
     # ------------------------------------------------------------------------ #
     prob = set_benef_max(graph,source,p)
     # Coin Branch and Cut solver is used to solve the instanced model
-    # TODO: change the log path file
     prob.solve(pl.PULP_CBC_CMD(logPath='./log_path_file.log'))
 
     # ------------------------------------------------------------------------ #
@@ -119,11 +116,5 @@ def solve_truck_problem(file_path):
 
 if __name__ == '__main__':
 
-    data_folder = Path("./data")
-
-    file_to_open = data_folder/"truck_instance_base.data"
-
-    graph = extract_data(file_to_open)
+    file_to_open = "./data/truck_instance_base.data"
     solve_truck_problem(file_to_open)
-    #print(nx.get_node_attributes(graph,'Demande'))
-    #nx.write_graphml(graph,'test_clientsuppr.graphml')
